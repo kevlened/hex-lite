@@ -1,5 +1,6 @@
 const assert = require('assert')
 const demoArray = new Uint8Array([0,15,16,255,0,15,16])
+const demoBuffer = new Buffer(demoArray)
 const demoHex = '000f10ff000f10'
 
 function createBigArray(size) {
@@ -20,12 +21,12 @@ function run(hex, version) {
     `hex.fromUint8Array did not transform correctly:
     ${hex.fromUint8Array(demoArray)} should equal ${demoHex}`)
 
-  assert.ok(Buffer.from(hex.toUint8Array(demoHex)).equals(demoArray),
+  assert.ok(Buffer.from(hex.toUint8Array(demoHex)).equals(demoBuffer),
     `hex.toUint8Array did not transform correctly:
     ${hex.toUint8Array(demoHex)} should equal ${demoArray}`)
 
   assert.ok(new Buffer(hex.toUint8Array(hex.fromUint8Array(demoArray)))
-    .equals(demoArray),
+    .equals(demoBuffer),
     'hex.toUint8Array(hex.fromUint8Array()) did not transform correctly')
 
   assert.equal(hex.fromUint8Array(hex.toUint8Array(demoHex)), demoHex,
@@ -34,10 +35,10 @@ function run(hex, version) {
   assert.equal(hex.fromBuffer(demoArray.buffer), demoHex,
     'hex.fromBuffer did not transform correctly')
 
-  assert.ok(ab2buf(hex.toBuffer(demoHex)).equals(demoArray),
+  assert.ok(ab2buf(hex.toBuffer(demoHex)).equals(demoBuffer),
     'hex.toBuffer did not transform correctly')
 
-  assert.ok(ab2buf(hex.toBuffer(hex.fromBuffer(demoArray.buffer))).equals(demoArray),
+  assert.ok(ab2buf(hex.toBuffer(hex.fromBuffer(demoArray.buffer))).equals(demoBuffer),
     'hex.toBuffer(hex.fromBuffer()) did not transform correctly')
 
   assert.equal(hex.fromBuffer(hex.toBuffer(demoHex)), demoHex,
