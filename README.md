@@ -1,4 +1,4 @@
-# hex-lite
+# hex-lite [![NPM](https://img.shields.io/npm/v/hex-lite.svg)](https://npmjs.com/package/hex-lite) [![Build](https://travis-ci.org/kevlened/hex-lite.svg?branch=master)](https://travis-ci.org/kevlened/hex-lite)
 Fast, bare minimum isomorphic hex library
 
 ## Usage
