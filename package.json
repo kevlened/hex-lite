@@ -1,0 +1,39 @@
+{
+  "name": "hex-lite",
+  "amdName": "hex",
+  "version": "1.0.0",
+  "description": "Bare minimum isomorphic utf8 library",
+  "main": "index.js",
+  "browser": "dist/hex-lite.umd.js",
+  "module": "dist/hex-lite.es.js",
+  "scripts": {
+    "dev": "microbundle watch",
+    "build": "microbundle --entry browser.js --output dist",
+    "prepublish": "npm run build",
+    "pretest": "npm run build",
+    "test": "node test",
+    "release": "npm run build && npm test && git commit -am $npm_package_version && git tag $npm_package_version && git push && git push --tags && npm publish"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kevlened/hex-lite.git"
+  },
+  "files": [
+    "index.js",
+    "dist"
+  ],
+  "keywords": [
+    "hex",
+    "buffer",
+    "ArrayBuffer",
+    "Uint8Array"
+  ],
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/kevlened/hex-lite/issues"
+  },
+  "homepage": "https://github.com/kevlened/hex-lite#readme",
+  "devDependencies": {
+    "microbundle": "^0.2.4"
+  }
+}
