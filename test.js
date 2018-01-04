@@ -17,7 +17,8 @@ function ab2buf(ab) {
 
 function run(hex, version) {
   assert.equal(hex.fromUint8Array(demoArray), demoHex,
-    'hex.fromUint8Array did not transform correctly')
+    `hex.fromUint8Array did not transform correctly:
+    ${hex.fromUint8Array(demoArray)} should equal ${demoHex}`)
 
   assert.ok(Buffer.from(hex.toUint8Array(demoHex)).equals(demoArray),
     'hex.toUint8Array did not transform correctly')

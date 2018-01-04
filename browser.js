@@ -1,17 +1,15 @@
 export function fromUint8Array(uint8Array) {
   const view = new DataView(uint8Array.buffer)
   let hex = ''
-  // TODO: optimize this - parse as many groups of 4 as possible, before doing singles
-  if (view.byteLength % 4) {
-    for (let d = 0, dl = view.byteLength; d < dl; d++) {
-      let c = view.getUint8(d).toString(16)
-      hex += c.length < 2 ? '0' + c : c
-    }
-    return hex
-  }
-  for (let d = 0, dl = view.byteLength; d < dl; d += 4) {
-    // which takes longer: variable assignment + conditional or slice?
+  const bl = view.byteLength
+  const largeLength = bl - (bl % 4)
+  let d = 0
+  for (; d < largeLength; d += 4) {
     hex += ('00000000' + view.getUint32(d).toString(16)).slice(-8);
+  }
+  for (; d < bl; d++) {
+    let c = view.getUint8(d).toString(16)
+    hex += c.length < 2 ? '0' + c : c
   }
   return hex;
 }
