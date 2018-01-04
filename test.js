@@ -10,7 +10,6 @@ function createBigArray(size) {
   }
   return new Uint8Array(ab)
 }
-const bigArray = createBigArray(1000003)
 
 function ab2buf(ab) {
   return Buffer.from(new Uint8Array(ab));
@@ -45,22 +44,40 @@ function run(hex, version) {
     'hex.fromBuffer(hex.toBuffer()) did not transform correctly')
 
   console.log(`✅ Success for ${version}!`)
-  console.log(`⏱ ${version} performance on large array and string:`)
+
+  const n = 1000
+  let c = n
+  const size = 10003
+  const bigArray = createBigArray(size)
+  const bigString = hex.fromUint8Array(bigArray)
+  console.log(`⏱ ${version} performance on ${n} arrays and strings of size ${size}:`)
 
   console.time(`hex.fromUint8Array`)
-  const bigString = hex.fromUint8Array(bigArray)
+  c = n
+  while (c--) {
+    hex.fromUint8Array(bigArray)
+  }
   console.timeEnd(`hex.fromUint8Array`)
 
   console.time(`hex.toUint8Array`)
-  hex.toUint8Array(bigString)
+  c = n
+  while (c--) {
+    hex.toUint8Array(bigString)
+  }
   console.timeEnd(`hex.toUint8Array`)
 
   console.time(`hex.fromBuffer`)
-  hex.fromBuffer(bigArray.buffer)
+  c = n
+  while (c--) {
+    hex.fromBuffer(bigArray.buffer)
+  }
   console.timeEnd(`hex.fromBuffer`)
 
   console.time(`hex.toBuffer`)
-  hex.toBuffer(bigString)
+  c = n
+  while (c--) {
+    hex.toBuffer(bigString)
+  }
   console.timeEnd(`hex.toBuffer`)
 
   console.log('')
