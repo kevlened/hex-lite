@@ -21,7 +21,8 @@ function run(hex, version) {
     ${hex.fromUint8Array(demoArray)} should equal ${demoHex}`)
 
   assert.ok(Buffer.from(hex.toUint8Array(demoHex)).equals(demoArray),
-    'hex.toUint8Array did not transform correctly')
+    `hex.toUint8Array did not transform correctly:
+    ${hex.toUint8Array(demoHex)} should equal ${demoArray}`)
 
   assert.ok(new Buffer(hex.toUint8Array(hex.fromUint8Array(demoArray)))
     .equals(demoArray),

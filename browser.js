@@ -1,11 +1,9 @@
 export function fromUint8Array(uint8Array) {
   const view = new DataView(uint8Array.buffer)
-  let hex = ''
-  const bl = view.byteLength
-  const largeLength = bl - (bl % 4)
-  let d = 0
+  const bl = view.byteLength, largeLength = bl - (bl % 4)
+  let hex = '', d = 0
   for (; d < largeLength; d += 4) {
-    hex += ('00000000' + view.getUint32(d).toString(16)).slice(-8);
+    hex += ('00000000' + view.getUint32(d).toString(16)).slice(-8)
   }
   for (; d < bl; d++) {
     let c = view.getUint8(d).toString(16)
@@ -16,11 +14,17 @@ export function fromUint8Array(uint8Array) {
 
 export function toUint8Array(str) {
   if (str.length % 2) throw new Error(str + 'is not valid hex')
-  const bytes = []
-  for (let s = 0, sl = str.length; s < sl; s += 2) {
-    bytes.push(parseInt(str.substr(s, 2), 16))
+  const sl = str.length, largeLength = sl - (sl % 8)
+  const uint8Array = new Uint8Array(sl / 2)
+  const view = new DataView(uint8Array.buffer)
+  let s = 0
+  for (; s < largeLength; s += 8) {
+    view.setUint32(s / 8, parseInt(str.substr(s, 8), 16))
   }
-  return new Uint8Array(bytes)
+  for (; s < sl; s += 2) {
+    view.setUint8(s / 2, parseInt(str.substr(s, 2), 16))
+  }
+  return uint8Array
 }
 
 export function fromBuffer(buffer) {
