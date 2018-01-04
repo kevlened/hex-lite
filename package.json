@@ -2,7 +2,7 @@
   "name": "hex-lite",
   "amdName": "hex",
   "version": "1.0.0",
-  "description": "Bare minimum isomorphic utf8 library",
+  "description": "Fast, bare minimum isomorphic hex library",
   "main": "index.js",
   "browser": "dist/hex-lite.umd.js",
   "module": "dist/hex-lite.es.js",
