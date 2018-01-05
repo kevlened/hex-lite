@@ -8,7 +8,7 @@
   "module": "dist/hex-lite.es.js",
   "scripts": {
     "dev": "microbundle watch",
-    "build": "microbundle --entry browser.js --output dist",
+    "build": "microbundle --entry browser.js --output dist && microbundle --entry browser-fast.js --output fast",
     "prepublish": "npm run build",
     "pretest": "npm run build",
     "test": "node test",
@@ -20,7 +20,8 @@
   },
   "files": [
     "index.js",
-    "dist"
+    "dist",
+    "fast"
   ],
   "keywords": [
     "hex",

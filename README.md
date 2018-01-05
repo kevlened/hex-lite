@@ -33,7 +33,33 @@ import { fromUint8Array } from 'hex-lite/dist/hex-list.es.js'
 
 ## I wanna go fast!
 
-The Node implementation is just a proxy to Node's `Buffer` object to be as fast as possible. The browser implementation optimizes for size, so if you're looking for raw speed, check out [this gist](https://gist.github.com/kevlened/6e6b69c857bb80073e02a52677672a3b).
+The Node implementation is just a proxy to Node's `Buffer` object to be as fast as possible. The default browser implementation optimizes for size, so if you're looking for raw speed, import like this:
+
+```javascript
+import hex from 'hex-lite/fast/hex-lite.js'
+```
+
+#### Perf profile
+
+```
+⏱ browser performance on 1000 arrays or strings of size 10003:
+hex.fromUint8Array: 810.422ms
+hex.toUint8Array: 743.903ms
+hex.fromBuffer: 798.264ms
+hex.toBuffer: 584.592ms
+
+⏱ fast browser performance on 1000 arrays or strings of size 10003:
+hex.fromUint8Array: 222.453ms
+hex.toUint8Array: 237.905ms
+hex.fromBuffer: 223.078ms
+hex.toBuffer: 231.342ms
+
+⏱ node performance on 1000 arrays or strings of size 10003:
+hex.fromUint8Array: 26.802ms
+hex.toUint8Array: 32.461ms
+hex.fromBuffer: 25.326ms
+hex.toBuffer: 35.421ms
+```
 
 ## License
 

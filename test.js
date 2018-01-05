@@ -84,4 +84,5 @@ function run(hex, version) {
 }
 
 run(require('./dist/hex-lite.js'), 'browser')
+run(require('./fast/hex-lite.js'), 'fast browser')
 run(require('./index.js'), 'node')
