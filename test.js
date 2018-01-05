@@ -50,7 +50,7 @@ function run(hex, version) {
   const size = 10003
   const bigArray = createBigArray(size)
   const bigString = hex.fromUint8Array(bigArray)
-  console.log(`⏱ ${version} performance on ${n} arrays and strings of size ${size}:`)
+  console.log(`⏱ ${version} performance on ${n} arrays or strings of size ${size}:`)
 
   console.time(`hex.fromUint8Array`)
   c = n
@@ -83,5 +83,5 @@ function run(hex, version) {
   console.log('')
 }
 
-run(require('./dist/hex-lite.umd.js'), 'browser')
+run(require('./dist/hex-lite.js'), 'browser')
 run(require('./index.js'), 'node')

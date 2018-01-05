@@ -1,6 +1,6 @@
  const hex = {
   toUint8Array(str) {
-    if (str.length % 2) throw new Error(str + 'is not valid hex')
+    if (str.length % 2) throw new Error('invalid hex:' + str)
     return new Uint8Array(Buffer.from(str, 'hex'))
   },
   fromUint8Array(uint8Array) {

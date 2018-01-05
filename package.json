@@ -2,9 +2,9 @@
   "name": "hex-lite",
   "amdName": "hex",
   "version": "1.0.0",
-  "description": "Fast, bare minimum isomorphic hex library",
+  "description": "isomorphic hex library in 288 bytes",
   "main": "index.js",
-  "browser": "dist/hex-lite.umd.js",
+  "browser": "dist/hex-lite.js",
   "module": "dist/hex-lite.es.js",
   "scripts": {
     "dev": "microbundle watch",
