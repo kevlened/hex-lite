@@ -1,7 +1,7 @@
 {
   "name": "hex-lite",
   "amdName": "hex",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "isomorphic hex library in 288 bytes",
   "main": "index.js",
   "browser": "dist/hex-lite.js",
