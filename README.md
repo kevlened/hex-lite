@@ -28,7 +28,7 @@ hex.fromBuffer(new Uint8Array([0,15,16,255,0,15,16]).buffer)
 If you use ES6 imports with tree-shaking, yes! The caveat is you have to change how you import until [some issues get sorted out in bundlers](https://github.com/stereobooster/package.json/issues/2).
 
 ```javascript
-import { fromUint8Array } from 'hex-lite/dist/hex-lite.es.js'
+import { fromUint8Array } from 'hex-lite/dist/hex-lite.mjs'
 ```
 
 ## I wanna go fast!
@@ -36,7 +36,7 @@ import { fromUint8Array } from 'hex-lite/dist/hex-lite.es.js'
 The Node implementation is just a proxy to Node's `Buffer` object to be as fast as possible. The default browser implementation optimizes for size, so if you're looking for raw speed, import like this:
 
 ```javascript
-import hex from 'hex-lite/fast/hex-lite.js'
+import hex from 'hex-lite/fast/hex-lite.mjs'
 ```
 
 #### Perf profile

@@ -3,16 +3,16 @@
   "amdName": "hex",
   "version": "1.2.1",
   "description": "isomorphic hex library in 288 bytes",
-  "main": "index.js",
+  "main": "node/hex-lite.js",
   "browser": "dist/hex-lite.js",
-  "module": "dist/hex-lite.es.js",
+  "module": "node/hex-lite.mjs",
   "scripts": {
     "dev": "microbundle watch",
-    "build": "microbundle --entry browser.js --output dist && microbundle --entry browser-fast.js --output fast",
+    "build": "microbundle --entry browser.mjs --output dist && microbundle --entry node.mjs --output node && microbundle --entry browser-fast.mjs --output fast",
     "prepublish": "npm run build",
     "pretest": "npm run build",
     "test": "node test",
-    "release": "npm run build && npm test && git commit -am $npm_package_version && git tag $npm_package_version && git push && git push --tags && npm publish"
+    "release": "npm test && git commit -am $npm_package_version && git tag $npm_package_version && git push && git push --tags && npm publish"
   },
   "repository": {
     "type": "git",
