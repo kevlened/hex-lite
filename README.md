@@ -25,10 +25,10 @@ hex.fromBuffer(new Uint8Array([0,15,16,255,0,15,16]).buffer)
 
 ## Can it be smaller?
 
-If you use ES6 imports with tree-shaking, yes! The caveat is you have to change how you import until [some issues get sorted out in bundlers](https://github.com/stereobooster/package.json/issues/2).
+If you use ES6 imports with a bundler that supports tree-shaking, yes!
 
 ```javascript
-import { fromUint8Array } from 'hex-lite/dist/hex-lite.mjs'
+import { fromUint8Array } from 'hex-lite'
 ```
 
 ## I wanna go fast!
