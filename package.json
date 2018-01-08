@@ -2,7 +2,7 @@
   "name": "hex-lite",
   "amdName": "hexLite",
   "version": "1.4.0",
-  "description": "isomorphic hex library in 288 bytes",
+  "description": "isomorphic hex library in 256 bytes",
   "main": "node/hex-lite.js",
   "module": "node/hex-lite.mjs",
   "browser": {

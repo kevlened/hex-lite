@@ -18,10 +18,3 @@ export function fromBuffer(buffer) {
 export function toBuffer(str) {
   return toUint8Array(str).buffer
 }
-
-export default {
-  fromUint8Array,
-  toUint8Array,
-  fromBuffer,
-  toBuffer
-}

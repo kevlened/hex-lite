@@ -1,5 +1,5 @@
 # hex-lite [![NPM](https://img.shields.io/npm/v/hex-lite.svg)](https://npmjs.com/package/hex-lite) [![Build](https://travis-ci.org/kevlened/hex-lite.svg?branch=master)](https://travis-ci.org/kevlened/hex-lite)
-isomorphic hex library in 288 bytes
+isomorphic hex library in 256 bytes
 
 ## Install
 
